@@ -1,4 +1,4 @@
-### [Live Site](https://covid19statswebsite.netlify.com/)
+### [Live Site](https://virtuosars.github.io/CovidLive)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -68,3 +68,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+## Acknowledgments
+
+* **JavaScript Mastery** [video](https://www.youtube.com/watch?v=khJlrj3Y6Ls).
