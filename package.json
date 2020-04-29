@@ -1,7 +1,7 @@
 {
   "name": "corona_app",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "homepage": "https://virtuosars.github.io/CovidLive",
   "dependencies": {
     "@material-ui/core": "^4.9.7",
