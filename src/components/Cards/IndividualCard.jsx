@@ -2,12 +2,12 @@ import { Card, CardContent, Grid, Typography } from '@material-ui/core';
 import cx from 'classnames';
 import React, { useState } from 'react';
 import CountUp from 'react-countup';
+import Delta from '../Delta/Delta';
 import styles from './Cards.module.css';
 
-const Info = ({ name, value, subHead, date }) => {
+const Info = ({ name, value, subHead, deltaconfirmed, deltaColor }) => {
   const [raised, setRaised] = useState(false);
 
-  // console.log("Prop==", props)
 
   const onMouseOver = () => {
     setRaised(true);
@@ -41,14 +41,17 @@ const Info = ({ name, value, subHead, date }) => {
             {name}
           </Typography>
           <Typography variant="h5" component="h2" gutterBottom>
-            <CountUp start={0} end={value} duration={1.5} separator="," />
+            <CountUp start={0} end={value} duration={1} separator="," />
           </Typography>
-          <Typography color="textSecondary" gutterBottom>
+          {/* <Typography color="textSecondary" gutterBottom>
             {new Date(date).toDateString()}
-          </Typography>
+          </Typography> */}
           <Typography variant="body2" component="p">
             {subHead}
           </Typography>
+          {deltaconfirmed > 0 ? 
+          <Delta inpCnt={deltaconfirmed} color={deltaColor} size='med' fromCard={true}/>
+          : null}
         </CardContent>
         </Card>
       </Grid>

@@ -1,4 +1,4 @@
-import { Grid } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import React from 'react';
 import styles from './Cards.module.css';
 import IndividualCard from './IndividualCard';
@@ -18,7 +18,11 @@ const cardObj = [
   },
 ]
 
-const Info = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
+
+const Info = ({ data }) => {
+
+  const { confirmed, recovered, deaths, lastUpdate, deltaconfirmed, deltadeaths, deltarecovered } 
+            = (data && data.totData) ? data.totData[0] : data;
 
   if (!confirmed) {
     return 'Loading...';
@@ -27,17 +31,31 @@ const Info = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
   const cardsRender =  
     cardObj.map((card, i) => {
     let cardValue = 0;
-    if(card.name === 'Infected')
+    let delta = 0;
+    let dColor = 'grey';
+    if(card.name === 'Infected') {
       cardValue = confirmed.value; 
-    else if (card.name === 'Recovered')
+      delta = deltaconfirmed;
+      dColor = 'blue';
+    }  
+    else if (card.name === 'Recovered') {
       cardValue = recovered.value;
-    else if (card.name === 'Deaths')
+      delta = deltarecovered;
+      dColor = 'green';
+    }
+    else if (card.name === 'Deaths') {
       cardValue = deaths.value  
-    else
-      cardValue = 1;
+      delta = deltadeaths;
+      dColor = 'red';
+    }
+    else {
+      cardValue = 0;
+      delta = 0;
+      dColor = 'grey';
+    }
     return (
       <React.Fragment key={i}>
-        <IndividualCard name={card.name} value={cardValue} subHead={card.subhead} date={lastUpdate}/>
+        <IndividualCard name={card.name} value={cardValue} subHead={card.subhead} deltaconfirmed={delta} deltaColor={dColor}/>
       </React.Fragment>
     )
     }
@@ -46,6 +64,11 @@ const Info = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
   return (
     <div className={styles.container}>
       <Grid container spacing={3} justify="center">
+        { lastUpdate && <Grid item xs={12} >
+          <Typography color="textSecondary" gutterBottom className={styles.refreshDate}>
+              Data last refreshed: {new Date(lastUpdate).toDateString()}
+          </Typography>
+        </Grid>}
         {cardsRender}
       </Grid>
     </div>
