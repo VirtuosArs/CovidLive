@@ -1,9 +1,9 @@
+import Box from '@material-ui/core/Box';
+import Container from '@material-ui/core/Container';
 import React from 'react';
 import { fetchData } from './api/';
 import styles from './App.module.css';
-import { Cards, Chart, CountryPicker } from './components';
-import image from './images/image.png';
-
+import { Cards, Chart, CountryPicker, Header } from './components';
 
 
 class App extends React.Component {
@@ -28,12 +28,19 @@ class App extends React.Component {
     const { data, country } = this.state;
 
     return (
-      <div className={styles.container}>
-        <img className={styles.image} src={image} alt="COVID-19" />
-        <CountryPicker handleCountryChange={this.handleCountryChange} />
-        <Cards data={data} />
-        <Chart data={data} country={country} /> 
-      </div>
+      <>
+        <Header />
+        <Container>
+          <Box my={2}>
+            <div className={styles.container}>
+              {/* <img className={styles.image} src={image} alt="COVID-19" /> */}
+              <CountryPicker handleCountryChange={this.handleCountryChange} />
+              <Cards data={data} />
+              <Chart data={data} country={country} /> 
+            </div>
+          </Box>
+        </Container>
+      </>
     );
   }
 }
