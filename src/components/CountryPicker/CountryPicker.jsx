@@ -1,28 +1,49 @@
-import React, { useState, useEffect } from 'react';
-import { NativeSelect, FormControl } from '@material-ui/core';
-
+import { FormControl } from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
+import Select from 'react-select';
 import { fetchCountries } from '../../api';
-
 import styles from './CountryPicker.module.css';
+
+let arr = [{ value: '', label: 'Global'}];
 
 const Countries = ({ handleCountryChange }) => {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
     const fetchAPI = async () => {
-      setCountries(await fetchCountries());
+      let count = await fetchCountries();
+      var len = count.length;
+      for (var i = 0; i < len; i++) {
+        arr.push({
+            value: count[i],
+            label: count[i],
+        });
+      }
+    await setCountries(arr);
     };
 
     fetchAPI();
   }, []);
 
+  const handleChange = (selectedOption) => {
+      handleCountryChange(selectedOption.value);
+  }
+
   return (
+    <>
     <FormControl className={styles.formControl}>
-      <NativeSelect defaultValue="" onChange={(e) => handleCountryChange(e.target.value)}>
-        <option value="">Global</option>
-        {countries.map((country, i) => <option key={i} value={country}>{country}</option>)}
-      </NativeSelect>
+      <Select
+      className="basic-single"
+      defaultValue={''}
+      placeholder={'Global'}
+      isSearchable={true}
+      onChange={handleChange}
+      name="color"
+      options={countries}
+      style={{width: '50%'}}  
+      />
     </FormControl>
+    </>
   );
 };
 
