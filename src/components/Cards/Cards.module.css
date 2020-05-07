@@ -11,15 +11,31 @@
 }
 
 .infected {
-  border-bottom: 10px solid rgba(0, 0, 255, 0.5);
+  border-bottom: 0.5px solid rgba(0, 0, 255, 0.5);
+  background: #eff7ff !important;
+  color: #007bff !important;
 }
 
 .recovered{
-  border-bottom: 10px solid rgba(0, 255, 0, 0.5);
+  border-bottom: 0.5px solid rgba(0, 255, 0, 0.5);
+  background: #28a74520 !important;
+  color: #28a745 !important;
 }
 
 .deaths{
-  border-bottom: 10px solid rgba(255, 0, 0, 0.5);
+  border: 0.5px solid rgba(255, 0, 0, 0.5);
+  background: #ff073a20 !important;
+  color: #ff073a !important;
+}
+
+.mainTitle {
+  margin-bottom: 1rem !important;
+  font-weight: 400 !important;
+}
+
+.countCard {
+  font-weight: 600 !important; 
+  letter-spacing: 0.02rem !important;
 }
 
 .newCard {

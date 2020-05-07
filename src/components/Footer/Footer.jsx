@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <div className="footer-container">
             <Typography color="textSecondary" display="block" align='center'>
-                Corona Virus Live Statistics ©2020 Created with <span style={{color: '#e25555'}}>&hearts;</span> by <a href="https://virtuosArs.github.io/ARSOnePage" target="_blank" rel="noopener noreferrer">Ankush Sankhe</a>
+                Created with <span style={{color: '#e25555'}}>&hearts;</span> by <a href="https://virtuosArs.github.io/ARSOnePage" target="_blank" rel="noopener noreferrer">Ankush Sankhe</a>
             </Typography>
             <Typography  color="textSecondary" display="block" align='center'>
                 Data Sources:

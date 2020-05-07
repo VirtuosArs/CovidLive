@@ -37,10 +37,10 @@ const Info = ({ name, value, subHead, deltaconfirmed, deltaColor }) => {
         className={temperatureClassname(name)}
         >
         <CardContent>
-          <Typography color="textSecondary" gutterBottom>
+          <Typography variant='h2' gutterBottom className={cx(styles.mainTitle)}>
             {name}
           </Typography>
-          <Typography variant="h5" component="h2" gutterBottom>
+          <Typography variant="h1" component="h1" gutterBottom className={cx(styles.countCard)}>
             <CountUp start={0} end={value} duration={1} separator="," />
           </Typography>
           {/* <Typography color="textSecondary" gutterBottom>

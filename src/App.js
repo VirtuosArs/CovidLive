@@ -3,8 +3,8 @@ import Container from '@material-ui/core/Container';
 import React from 'react';
 import { fetchCountryData, fetchDailyData, fetchIndiaData, fetchIndiaGraphData } from './api/';
 import styles from './App.module.css';
-import { Cards, Chart, CountryPicker, DataTable, Footer, Header } from './components';
-
+import './App.scss';
+import { Cards, Chart, ChoroplethMap, CountryPicker, Footer, Header, Table } from './components';
 
 class App extends React.Component {
   state = {
@@ -37,7 +37,7 @@ class App extends React.Component {
       data = await fetchCountryData();
       graphData = await fetchDailyData();
     }
-    this.setState({ data, country , graphData });
+    await this.setState({ data, country , graphData });
   }
 
   render() {
@@ -45,6 +45,7 @@ class App extends React.Component {
 
     return (
       <>
+      <div className="App">
         <Header />
         <Container>
           <Box my={2}>
@@ -57,14 +58,23 @@ class App extends React.Component {
               {
                 country === 'India' && graphData && data &&
                 <>
+                {/* <DataTable data={data} country={country}/> */}
+                <div className="Home">
+                <div className="home-left">
+                  <Table states={data.stateData} />
+                </div>
+                <div className="home-right">
+                  {data && data.stateData && <ChoroplethMap states={data.stateData}/> }
+                </div>
+                </div>
                 <Chart graphData={graphData} country={country} />
-                <DataTable data={data} country={country}/>
                 </>
               } 
             </div>
           </Box>
         </Container>
         <Footer />
+      </div>
       </>
     );
   }
