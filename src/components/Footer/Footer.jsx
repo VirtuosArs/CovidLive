@@ -12,7 +12,12 @@ const Footer = () => {
             <Typography  color="textSecondary" display="block" align='center'>
                 Data Sources:
                 &nbsp;|&nbsp;<a href="https://api.covid19india.org/" target="_blank" rel="noopener noreferrer">Covid19India</a>
-                &nbsp;|&nbsp;<a href="https://covid19.mathdro.id/api/" target="_blank" rel="noopener noreferrer">Mathdro</a>
+                &nbsp;|&nbsp;<a href="https://github.com/mathdroid/covid-19-api" target="_blank" rel="noopener noreferrer">Mathdroid</a>
+            </Typography>
+            <Typography  color="textSecondary" display="block" align='center'>
+                UI Inspiration by:
+                &nbsp;|&nbsp;<a href="https://github.com/covid19india/covid19india-react" target="_blank" rel="noopener noreferrer">Covid19India</a>
+                &nbsp;|&nbsp;<a href="https://github.com/adrianhajdin/project_corona_tracker" target="_blank" rel="noopener noreferrer">JavaScript Mastery</a>
             </Typography>
         </div>
     );

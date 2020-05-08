@@ -72,5 +72,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 ## Acknowledgments
 * **Data API** [Link](https://github.com/mathdroid/covid-19-api)
 * **India Data API** [Link](https://api.covid19india.org/)
-* **Map and table UI** [Covid19India](https://github.com/covid19india/covid19india-react)
-* **JavaScript Mastery** [video](https://www.youtube.com/watch?v=khJlrj3Y6Ls).
+* **Map and table UI** [Covid19India Repo](https://github.com/covid19india/covid19india-react)
+* **JavaScript Mastery** [Repo](https://github.com/adrianhajdin/project_corona_tracker).
