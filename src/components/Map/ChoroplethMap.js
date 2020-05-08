@@ -192,7 +192,7 @@ function ChoroplethMap(props) {
       </div>
 
       <div className="map-stats">
-        <h4>{state.state}</h4>
+        <h4>{state.stateName}</h4>
 
         <div className="stats">
           <h5>Confirmed</h5>

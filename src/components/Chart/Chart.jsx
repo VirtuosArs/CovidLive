@@ -110,7 +110,6 @@ const Chart = ({ graphData, country }) => {
           data: graphData.map(({ confirmed }) => confirmed),
           label: 'Confirmed',
           borderColor: 'rgba(0, 0, 255, 0.5)',
-        //   borderColor: '#eff7ff',
           fill: true
       }, {
           data: graphData.map(({ deaths }) => deaths),
@@ -123,8 +122,7 @@ const Chart = ({ graphData, country }) => {
       dataset = [{
           label: 'People',
           backgroundColor: [
-            //   'rgba(0, 0, 255, 0.5)',
-            '#007bff99',
+              '#007bff99',
               'rgba(0, 255, 0, 0.5)',
               'rgba(255, 0, 0, 0.5)'],
           data: [graphData.confirmed.value, graphData.recovered.value, graphData.deaths.value]
