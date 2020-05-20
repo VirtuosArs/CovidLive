@@ -150,7 +150,8 @@ const Chart = ({ graphData, country }) => {
           }}
           options={{
               legend: { display: false },
-              title: { display: true, text: title }
+              title: { display: true, text: title },
+              maintainAspectRatio: false
           }} /> : null;
 
   return (
