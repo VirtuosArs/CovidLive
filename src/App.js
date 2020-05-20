@@ -61,10 +61,10 @@ class App extends React.Component {
                 {/* <DataTable data={data} country={country}/> */}
                 <div className="Home">
                 <div className="home-left">
-                  <Table states={data.stateData} />
+                  {data && data.stateData && <ChoroplethMap states={data.stateData}/> }
                 </div>
                 <div className="home-right">
-                  {data && data.stateData && <ChoroplethMap states={data.stateData}/> }
+                  <Table states={data.stateData} />
                 </div>
                 </div>
                 <Chart graphData={graphData} country={country} />
@@ -73,7 +73,10 @@ class App extends React.Component {
             </div>
           </Box>
         </Container>
-        <Footer />
+        {graphData ? <Footer /> : <>
+          <p>Loading...</p>
+        </>
+        }
       </div>
       </>
     );

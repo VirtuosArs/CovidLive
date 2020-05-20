@@ -137,7 +137,8 @@ const Chart = ({ graphData, country }) => {
               datasets: dataset
           }} 
           options={{
-              title: { display: true, text: title }
+              title: { display: true, text: title },
+              maintainAspectRatio: false
           }}/> : null
   );
 
