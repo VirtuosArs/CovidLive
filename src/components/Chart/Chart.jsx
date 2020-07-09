@@ -1,3 +1,4 @@
+import cx from 'classnames';
 import React from 'react';
 import { Bar, Line } from 'react-chartjs-2';
 import styles from './Chart.module.css';
@@ -155,7 +156,7 @@ const Chart = ({ graphData, country }) => {
           }} /> : null;
 
   return (
-      <div className={styles.container}>
+      <div className={cx(styles.container, 'fadeInUp')}>
           {country ? (country === 'India' ? lineChart : barChart) : null}
           {!country ? lineChart : null}
           {/* {country === 'India' ? lineChart : null} */}

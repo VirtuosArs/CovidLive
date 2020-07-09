@@ -51,7 +51,10 @@ class App extends React.Component {
           <Box my={2}>
             <div className={styles.container}>
               {/* <img className={styles.image} src={image} alt="COVID-19" /> */}
+              {<p>Search the country to get the stats</p>}
               <CountryPicker handleCountryChange={this.handleCountryChange} />
+              {/* {
+                country !== 'India' && graphData && <p onClick={() => this.handleCountryChange('India')}>India</p>} */}
               <Cards data={data} />
               {/* <Chart data={data} country={country} /> */}
               {graphData && country !== 'India' && <Chart graphData={graphData} country={country} />}

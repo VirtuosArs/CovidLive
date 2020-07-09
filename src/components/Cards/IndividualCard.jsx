@@ -20,10 +20,10 @@ const Info = ({ name, value, subHead, deltaconfirmed, deltaColor }) => {
   function temperatureClassname(temp){
   
     switch (temp) {
-      case 'Infected': return cx(styles.card, styles.infected, styles.newCard)
-      case 'Recovered': return cx(styles.card, styles.recovered, styles.newCard)
-      case 'Deaths': return cx(styles.card, styles.deaths, styles.newCard)
-      default : return cx(styles.card, styles.infected, styles.newCard)
+      case 'Infected': return cx(styles.card, styles.infected, styles.newCard, 'fadeInUp')
+      case 'Recovered': return cx(styles.card, styles.recovered, styles.newCard, 'fadeInUp')
+      case 'Deaths': return cx(styles.card, styles.deaths, styles.newCard, 'fadeInUp')
+      default : return cx(styles.card, styles.infected, styles.newCard, 'fadeInUp')
     }
   }
 

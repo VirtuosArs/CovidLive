@@ -143,7 +143,7 @@ function ChoroplethMap(props) {
           .attr('class', 'states')
           .selectAll('path')
           // .data(topojson.feature(india, india.objects.india).features)
-          .data(topojson.feature(india, india.objects["india-states"]).features)
+          .data(topojson.feature(india, india.objects["states"]).features)
           .enter().append('path')
           .attr('fill', function(d) {
             const n = unemployment.get(d.properties.st_nm.toLowerCase());
@@ -171,7 +171,7 @@ function ChoroplethMap(props) {
           .attr('stroke', '#ff073a20')
           .attr('fill', 'none')
           .attr('stroke-width', 2)
-          .attr('d', path(topojson.mesh(india, india.objects["india-states"])));
+          .attr('d', path(topojson.mesh(india, india.objects["states"])));
     };
   };
 
