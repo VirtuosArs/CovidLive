@@ -88,25 +88,26 @@ const Chart = ({ graphData, country }) => {
 
   let dataset = [], title = '', isGraphDataArr = Array.isArray(graphData);
 
-  if (country === 'India' && isGraphDataArr && graphData) {
-      dataset = [{
-          data: isGraphDataArr ? graphData.map(({ confirmed }) => confirmed) : [],
-          label: 'Confirmed',
-          borderColor: 'rgba(0, 0, 255, 0.5)',
-          fill: true
-      }, {
-          data: isGraphDataArr ? graphData.map(({ recovered }) => recovered) : [],
-          label: 'Recovered',
-          borderColor: 'rgba(0, 255, 0, 0.5)',
-          fill: true
-      }, {
-          data: isGraphDataArr ? graphData.map(({ deaths }) => deaths) : [],
-          label: 'Deceased',
-          borderColor: 'rgba(255, 0, 0, 0.5)',
-          fill: true
-      }];
-      title = `Daily Cases Timeline`;
-  } else if (isGraphDataArr && graphData) {
+//   if (country === 'India' && isGraphDataArr && graphData) {
+//       dataset = [{
+//           data: isGraphDataArr ? graphData.map(({ confirmed }) => confirmed) : [],
+//           label: 'Confirmed',
+//           borderColor: 'rgba(0, 0, 255, 0.5)',
+//           fill: true
+//       }, {
+//           data: isGraphDataArr ? graphData.map(({ recovered }) => recovered) : [],
+//           label: 'Recovered',
+//           borderColor: 'rgba(0, 255, 0, 0.5)',
+//           fill: true
+//       }, {
+//           data: isGraphDataArr ? graphData.map(({ deaths }) => deaths) : [],
+//           label: 'Deceased',
+//           borderColor: 'rgba(255, 0, 0, 0.5)',
+//           fill: true
+//       }];
+//       title = `Daily Cases Timeline`;
+//   } else 
+  if (isGraphDataArr && graphData) {
       dataset = [{
           data: graphData.map(({ confirmed }) => confirmed),
           label: 'Confirmed',
@@ -157,7 +158,8 @@ const Chart = ({ graphData, country }) => {
 
   return (
       <div className={cx(styles.container, 'fadeInUp')}>
-          {country ? (country === 'India' ? lineChart : barChart) : null}
+          {country ?  barChart : null}
+          {/* {country ? (country === 'India' ? lineChart : barChart) : null} */}
           {!country ? lineChart : null}
           {/* {country === 'India' ? lineChart : null} */}
       </div>
