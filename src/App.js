@@ -25,18 +25,18 @@ class App extends React.Component {
     let data = {};
     let graphData = [];
 
-    if(country === 'India') {
-      data = await fetchIndiaData();
-      graphData = await fetchIndiaGraphData();
-    }
-    else if(country !== 'India' && country) {
-      data = await fetchCountryData(country);
-      graphData = await fetchCountryData(country);
-    }
-    else {
+    // if(country === 'India') {
+    //   data = await fetchIndiaData();
+    //   graphData = await fetchIndiaGraphData();
+    // }
+    // else if(country !== 'India' && country) {
+    //   data = await fetchCountryData(country);
+    //   graphData = await fetchCountryData(country);
+    // }
+    // else {
       data = await fetchCountryData();
       graphData = await fetchDailyData();
-    }
+    // }
     await this.setState({ data, country , graphData });
   }
 
@@ -57,11 +57,11 @@ class App extends React.Component {
                 country !== 'India' && graphData && <p onClick={() => this.handleCountryChange('India')}>India</p>} */}
               <Cards data={data} />
               {/* <Chart data={data} country={country} /> */}
-              {graphData && country !== 'India' && <Chart graphData={graphData} country={country} />}
-              {
+              {graphData && <Chart graphData={graphData} country={country} />}
+              {/* {graphData && country !== 'India' && <Chart graphData={graphData} country={country} />} */}
+              {/* {
                 country === 'India' && graphData && data &&
                 <>
-                {/* <DataTable data={data} country={country}/> */}
                 <div className="Home">
                 <div className="home-left">
                   {data && data.stateData && <ChoroplethMap states={data.stateData}/> }
@@ -71,7 +71,7 @@ class App extends React.Component {
                 </div>
                 </div>
                 <Chart graphData={graphData} country={country} />
-                </>
+                </> */}
               } 
             </div>
           </Box>
